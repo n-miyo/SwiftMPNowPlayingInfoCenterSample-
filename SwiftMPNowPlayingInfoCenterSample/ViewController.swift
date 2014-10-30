@@ -36,7 +36,7 @@ class ViewController : UIViewController {
     }
 
     // MARK: UIResponder
-    override func remoteControlReceivedWithEvent(event: UIEvent!) {
+    override func remoteControlReceivedWithEvent(event: UIEvent) {
         if event.type == .RemoteControl {
             switch event.subtype {
             case .RemoteControlPlay:
@@ -170,7 +170,7 @@ extension ViewController : MPMediaPickerControllerDelegate {
         mediaItem = i
         createPlayer()
         titleLabel.text =
-          i.valueForProperty(MPMediaItemPropertyTitle) as String
+          i.valueForProperty(MPMediaItemPropertyTitle) as? String
         playButton.setTitle("Play", forState:.Normal)
         playButton.enabled = true
         var img: UIImage! =
